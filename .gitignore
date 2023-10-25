@@ -3,6 +3,7 @@
 build
 dist/
 djangoenv/
+plinexvenv/
 docs/build/
 example-project/bin/
 example-project/db.sqlite3
