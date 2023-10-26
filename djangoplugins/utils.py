@@ -2,7 +2,7 @@ from __future__ import absolute_import
 
 from django.db import connection
 from django.conf import settings
-from django.conf.urls import include, url
+from django.conf.urls import include, path
 
 from importlib import import_module
 
@@ -32,7 +32,7 @@ def include_plugins(point, pattern=r'{plugin}/', urls='urls'):
             _urls = getattr(plugin, urls)
             for _url in _urls:
                 _url.default_args['plugin'] = plugin.name
-            pluginurls.append(url(
+            pluginurls.append(path(
                 pattern.format(plugin=plugin.name),
                 include(_urls)
             ))
