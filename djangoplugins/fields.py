@@ -8,7 +8,11 @@ from .utils import get_plugin_name
 
 
 class PluginField(models.ForeignKey):
-    def __init__(self, point=None, *args, **kwargs):
+    def __init__(self, 
+                point=None, 
+                on_delete=models.CASCADE, 
+                *args, 
+                **kwargs):
 
         # If not migrating, add a new fields.
         if point is not None:
@@ -18,7 +22,6 @@ class PluginField(models.ForeignKey):
 
         super(PluginField, self).__init__(
             to=kwargs.pop("to", Plugin), 
-            on_delete=models.CASCADE, 
             *args, **kwargs)
 
 
