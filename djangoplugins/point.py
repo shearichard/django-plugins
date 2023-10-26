@@ -139,6 +139,8 @@ class PluginPoint(object, metaclass=PluginMount):
             raise Exception(_('This method is only available to plugin point '
                               'classes.'))
         '''
+        #TODO This empty list is a temporary measure, see above
+        return []
 
     @classmethod
     def get_plugins_qs(cls):
