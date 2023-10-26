@@ -1,6 +1,7 @@
 asgiref==3.7.2
 Django==4.2.6
 django-dirtyfields==1.2.1
+-e git+https://github.com/shearichard/django-plugins@db72805e82974ea950c2efd2a09c56f5a3439f54#egg=django_plugins
 pytz==2023.3.post1
 sqlparse==0.4.4
 typing_extensions==4.8.0
