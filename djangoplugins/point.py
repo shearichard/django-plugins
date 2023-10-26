@@ -123,6 +123,11 @@ class PluginPoint(object, metaclass=PluginMount):
         # tables have already been created.
         # XXX: I don't fully understand the issue and there should be
         # another way but this appears to work fine.
+        '''
+        TODO - this needs to be plugged back in but at the moment it's impossible
+        to create the tables with this code in place without the tables in place
+        this code won't execute
+
         if django_version >= (1, 9) and \
                 not db_table_exists(Plugin._meta.db_table):
             raise StopIteration
@@ -133,6 +138,7 @@ class PluginPoint(object, metaclass=PluginMount):
         else:
             raise Exception(_('This method is only available to plugin point '
                               'classes.'))
+        '''
 
     @classmethod
     def get_plugins_qs(cls):
