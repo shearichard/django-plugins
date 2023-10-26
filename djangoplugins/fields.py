@@ -10,7 +10,6 @@ from .utils import get_plugin_name
 class PluginField(models.ForeignKey):
     def __init__(self, 
                 point=None, 
-                on_delete=models.CASCADE, 
                 *args, 
                 **kwargs):
 
@@ -22,6 +21,7 @@ class PluginField(models.ForeignKey):
 
         super(PluginField, self).__init__(
             to=kwargs.pop("to", Plugin), 
+            on_delete=models.CASCADE,
             *args, **kwargs)
 
 
