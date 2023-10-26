@@ -10,6 +10,7 @@ from .utils import get_plugin_name
 class PluginField(models.ForeignKey):
     def __init__(self, 
                 point=None, 
+                on_delete=models.CASCADE,
                 *args, 
                 **kwargs):
 
@@ -19,10 +20,10 @@ class PluginField(models.ForeignKey):
                 'point__pythonpath': get_plugin_name(point)
             }
 
-        super(PluginField, self).__init__(
-            to=kwargs.pop("to", Plugin), 
-            on_delete=models.CASCADE,
-            *args, **kwargs)
+        kwargs.setdefault('to', Plugin)
+        kwargs.setdefault('on_delete', models.CASCADE)
+        #super(PluginField, self).__init__(to=kwargs.pop("to", Plugin), *args, **kwargs)
+        super(PluginField, self).__init__(*args, **kwargs)
 
 
 class ManyPluginField(models.ManyToManyField):
@@ -34,8 +35,7 @@ class ManyPluginField(models.ManyToManyField):
                 'point__pythonpath': get_plugin_name(point)
             }
 
-        super(ManyPluginField, self).__init__(
-            to=kwargs.pop("to", Plugin), *args, **kwargs)
+        super(ManyPluginField, self).__init__(to=kwargs.pop("to", Plugin), *args, **kwargs)
 
 
 def get_plugins_qs(point):
