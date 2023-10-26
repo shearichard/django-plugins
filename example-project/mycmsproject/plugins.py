@@ -1,6 +1,6 @@
 from __future__ import absolute_import
 
-from django.conf.urls import path
+from django.urls import path
 from django.core.urlresolvers import reverse
 
 from djangoplugins.point import PluginPoint
