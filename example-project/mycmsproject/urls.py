@@ -24,9 +24,9 @@ from .views import index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path(r'^$', index, name='index'),
-    path(r'^content/', include_plugins(ContentType)),
-    path(r'^content/', include_plugins(
+    path(r'', index, name='index'),
+    path(r'content/', include_plugins(ContentType)),
+    path(r'content/', include_plugins(
         ContentType, '{plugin}/(?P<pk>\d+)/', 'instance_urls'
     )),
 ]
