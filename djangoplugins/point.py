@@ -127,6 +127,9 @@ class PluginPoint(object, metaclass=PluginMount):
         TODO - this needs to be plugged back in but at the moment it's impossible
         to create the tables with this code in place without the tables in place
         this code won't execute
+        TODO2 - I've re-enabled this code in order to test what happens when the
+        table already exists
+        '''
 
         if django_version >= (1, 9) and \
                 not db_table_exists(Plugin._meta.db_table):
@@ -141,6 +144,7 @@ class PluginPoint(object, metaclass=PluginMount):
         '''
         #TODO This empty list is a temporary measure, see above
         return []
+        '''
 
     @classmethod
     def get_plugins_qs(cls):
